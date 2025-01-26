@@ -19,10 +19,10 @@ public class SkipLayerGuidanceExtension : Extension
         Scale = T2IParamTypes.Register<double>(new("[SLG] Scale", "[Skip Layer Guidance]\nScale for guidance (akin to CFG).\nFor SD3.5, 3 is recommended.\nFor LTX-Video, 1 is recommended.",
             "3", Min: 0, Max: 10, Step: 0.5, Group: SkipLayerGuidanceGroup, OrderPriority: 1, Examples: ["1", "2", "3", "5"]
             ));
-        StartPercent = T2IParamTypes.Register<double>(new("[SLG] Start Percent", "[Skip Layer Guidance]\nHow far into the generation before SLG starts applying.\nAt 0, does nothing.\nFor SD3, 0.01 is recommended. For LTX-Video, 0 is recommended.",
+        StartPercent = T2IParamTypes.Register<double>(new("[SLG] Start Percent", "[Skip Layer Guidance]\nHow far into the generation before SLG starts applying.\nAt 0, does nothing (ie does not delay, and SLG runs in full).\nFor SD3, 0.01 is recommended. For LTX-Video, 0 is recommended.",
             "0", IgnoreIf: "0", Min: 0, Max: 1, Step: 0.01, Group: SkipLayerGuidanceGroup, OrderPriority: 2, ViewType: ParamViewType.SLIDER, Examples: ["0", "0.01", "0.1"]
             ));
-        EndPercent = T2IParamTypes.Register<double>(new("[SLG] End Percent", "[Skip Layer Guidance]\nHow far into the generation before SLG stops applying.\nAt 1, does nothing.\nFor SD3, 0.15 is recommended. For LTX-Video, 1 is recommended.",
+        EndPercent = T2IParamTypes.Register<double>(new("[SLG] End Percent", "[Skip Layer Guidance]\nHow far into the generation before SLG stops applying.\nAt 1, does nothing (ie does not end early, and SLG runs in full).\nFor SD3, 0.15 is recommended. For LTX-Video, 1 is recommended.",
             "1", IgnoreIf: "1", Min: 0, Max: 1, Step: 0.01, Group: SkipLayerGuidanceGroup, OrderPriority: 3, ViewType: ParamViewType.SLIDER, Examples: ["0.15", "0.5", "1"]
             ));
         RescalingScale = T2IParamTypes.Register<double>(new("[SLG] Rescaling Scale", "[Skip Layer Guidance]\nRescaling Scale, for STG logic.\nAt 0, Skip Layer Guidance is used. Above 0, STG is applied.\nFOR SD3.5, 0 is default.\nFor LTX-Video, 0.7 is default.",
